@@ -10,17 +10,16 @@
  */
 class Solution {
 public:
-ListNode* reverse(ListNode* head){
-    ListNode* last=NULL;
-    ListNode* current=head;
-    while(current!=NULL){
-       ListNode* next=current->next;
-       current->next=last;
-       last=current;
-       current=next;
+    ListNode* reverse(ListNode* head){
+        ListNode* last=NULL;
+        while(head!=NULL){
+            ListNode* temp=head->next;
+            head->next=last;
+            last=head;
+            head=temp;
+        }
+        return last;
     }
-    return last;
-}
     bool isPalindrome(ListNode* head) {
         ListNode* slow=head;
         ListNode* fast=head;
